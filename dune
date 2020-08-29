@@ -1,0 +1,14 @@
+
+(rule
+ (targets coq-pkgs)
+ (deps
+  (package coq-hahn))
+ (action
+  (run %{env:pkgtool=jscoq} build workdir --top hahn
+       --package coq-pkgs/hahn.coq-pkg)))
+
+(alias
+ (name all)
+ (deps package.json))
+
+(dirs workdir)
