@@ -4,7 +4,7 @@
  (deps
   (package coq-hahn))
  (action
-  (run %{env:pkgtool=jscoq} build workdir --top hahn
+  (run npx %{env:pkgtool=jscoq} build workdir --top hahn
        --package coq-pkgs/hahn.coq-pkg)))
 
 (alias
