@@ -19,6 +19,7 @@ get: $(WORKDIR)
 
 $(WORKDIR):
 	${if $(COMMIT), $(GIT_CLONE_COMMIT), git clone --recursive --depth=1 -b $(TAG) $(REPO) $(WORKDIR)}
+	( cd $(WORKDIR) && git apply ../etc/tmp-8.14.patch )
 	cp -r dune-files/* $(WORKDIR)/
 
 install:
