@@ -1,7 +1,7 @@
 {
     "name": "@jscoq/hahn",
     "description": "Hahn for jsCoq",
-    "version": "0.13.0",
+    "version": "0.14.1",
     "files": ["README.md", "coq-pkgs"],    
     "repository": {
         "type": "git",
