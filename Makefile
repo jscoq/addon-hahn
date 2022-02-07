@@ -1,6 +1,6 @@
-REPO = https://github.com/vafeiadis/hahn
+REPO = https://github.com/LumberWizard/hahn
 TAG = master
-COMMIT = b5dce20de40bf3fbab9afc0ac7c7231f65096990
+COMMIT = b509284dab2868fc286f10399f2f35f6776e71d0
 WORKDIR = workdir
 
 # Git boilerplate
@@ -19,7 +19,6 @@ get: $(WORKDIR)
 
 $(WORKDIR):
 	${if $(COMMIT), $(GIT_CLONE_COMMIT), git clone --recursive --depth=1 -b $(TAG) $(REPO) $(WORKDIR)}
-	( cd $(WORKDIR) && git apply ../etc/tmp-8.14.patch )
 	cp -r dune-files/* $(WORKDIR)/
 
 install:
