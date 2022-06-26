@@ -1,6 +1,6 @@
-REPO = https://github.com/LumberWizard/hahn
+REPO = https://github.com/vafeiadis/hahn
 TAG = master
-COMMIT = b509284dab2868fc286f10399f2f35f6776e71d0
+COMMIT = d486f449a51c14b8e1093f14d096cc99833974d7
 WORKDIR = workdir
 
 # Git boilerplate
@@ -9,6 +9,7 @@ mkdir -p $(WORKDIR) && cd $(WORKDIR) && git init && \
 git remote add origin $(REPO) && \
 git fetch --depth=1 origin $(COMMIT) && git reset --hard FETCH_HEAD
 endef
+GIT_CHECKOUT = ${if $(COMMIT), $(GIT_CLONE_COMMIT), git clone --recursive --depth=1 -b $(TAG) $(REPO) $(WORKDIR)}
 
 .PHONY: all get
 
@@ -18,7 +19,7 @@ all: $(WORKDIR)
 get: $(WORKDIR)
 
 $(WORKDIR):
-	${if $(COMMIT), $(GIT_CLONE_COMMIT), git clone --recursive --depth=1 -b $(TAG) $(REPO) $(WORKDIR)}
+	$(GIT_CHECKOUT)
 	cp -r dune-files/* $(WORKDIR)/
 
 install:
