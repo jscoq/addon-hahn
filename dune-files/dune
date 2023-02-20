@@ -1,6 +1,0 @@
-(coq.theory
- (name hahn)
- (package coq-hahn)
- (flags -w -omega-is-deprecated
-        -w -ambiguous-paths))
-
